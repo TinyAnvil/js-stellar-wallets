@@ -1,5 +1,5 @@
 import sinon from "sinon";
-import StellarSdk from "stellar-sdk";
+import { Keypair } from "stellar-sdk";
 import { DepositProvider } from "./DepositProvider";
 
 import { TransactionsResponse } from "../fixtures/TransactionsResponse";
@@ -36,10 +36,7 @@ describe("fetchFinalFee", () => {
       },
     };
 
-    const provider = new DepositProvider(
-      "test",
-      StellarSdk.Keypair.random().publicKey(),
-    );
+    const provider = new DepositProvider("test", Keypair.random().publicKey());
 
     // manually set info
     provider.info = { deposit: info, withdraw: {} };
@@ -69,10 +66,7 @@ describe("fetchFinalFee", () => {
       },
     };
 
-    const provider = new DepositProvider(
-      "test",
-      StellarSdk.Keypair.random().publicKey(),
-    );
+    const provider = new DepositProvider("test", Keypair.random().publicKey());
 
     provider.info = { deposit: info, withdraw: {} };
 
@@ -128,7 +122,7 @@ describe("watchOneTransaction", () => {
 
     provider = new DepositProvider(
       transferServer,
-      StellarSdk.Keypair.random().publicKey(),
+      Keypair.random().publicKey(),
     );
 
     await provider.fetchSupportedAssets();
@@ -500,7 +494,7 @@ describe("watchAllTransactions", () => {
 
     provider = new DepositProvider(
       transferServer,
-      StellarSdk.Keypair.random().publicKey(),
+      Keypair.random().publicKey(),
     );
 
     await provider.fetchSupportedAssets();
@@ -711,7 +705,7 @@ describe("validateFields", () => {
   function getProvider(fields: Field[]): DepositProvider {
     const provider = new DepositProvider(
       "https://test.com",
-      StellarSdk.Keypair.random().publicKey(),
+      Keypair.random().publicKey(),
     );
     provider.info = {
       deposit: {

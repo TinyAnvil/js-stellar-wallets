@@ -1,11 +1,11 @@
-import StellarSdk from "stellar-sdk";
+import { Keypair } from "stellar-sdk";
 
 import { EncryptedKey, Key, KeyMetadata } from "../types";
 
 import { KeyType } from "../constants/keys";
 
 export function generatePlaintextKey(): Key {
-  const account = StellarSdk.Keypair.random();
+  const account = Keypair.random();
   const publicKey = account.publicKey();
   const privateKey = account.secret();
 
@@ -18,7 +18,7 @@ export function generatePlaintextKey(): Key {
 }
 
 export function generateLedgerKey(): Key {
-  const account = StellarSdk.Keypair.random();
+  const account = Keypair.random();
   const publicKey = account.publicKey();
 
   return {

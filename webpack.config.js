@@ -1,37 +1,40 @@
 const path = require("path");
-const webpack = require("webpack");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: {
-    "wallet-sdk": "./src/browser.ts",
-    "wallet-sdk.min": "./src/browser.ts",
+    "wallet-sdk": "./dist/index.js",
+    "wallet-sdk.min": "./dist/index.js",
   },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist/commonjs"),
-    libraryTarget: "commonjs-module",
+    libraryTarget: "commonjs2",
   },
-  resolve: {
-    extensions: [".js", ".json", ".ts"],
-  },
+  // resolve: {
+  //   extensions: [
+  //     ".js",
+  //     ".json",
+  //     ".ts"
+  //   ],
+  // },
   module: {
     rules: [
-      {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "ts-loader",
-            options: {
-              transpileOnly: true,
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.ts$/,
+      //   exclude: /node_modules/,
+      //   use: [
+      //     {
+      //       loader: "ts-loader",
+      //       options: {
+      //         transpileOnly: true,
+      //       },
+      //     },
+      //   ],
+      // },
       {
         test: /\.js$/,
-        exclude: /node_modules\/(?!(crc)\/).*/,
+        exclude: /node_modules/,
         use: [
           {
             loader: "babel-loader",
@@ -40,11 +43,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1,
-    }),
-  ],
   optimization: {
     minimize: true,
     minimizer: [

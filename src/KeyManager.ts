@@ -1,4 +1,4 @@
-import StellarSdk, { Transaction } from "stellar-sdk";
+import { Networks, Transaction } from "stellar-sdk";
 
 import { ledgerHandler } from "./keyTypeHandlers/ledger";
 import { plaintextKeyHandler } from "./keyTypeHandlers/plaintextKey";
@@ -94,7 +94,7 @@ export class KeyManager {
     this.shouldCache = params.shouldCache || false;
 
     this.defaultNetworkPassphrase =
-      params.defaultNetworkPassphrase || StellarSdk.Networks.PUBLIC;
+      params.defaultNetworkPassphrase || Networks.PUBLIC;
   }
 
   /**

@@ -1,4 +1,4 @@
-import StellarSdk from "stellar-sdk";
+import { Keypair } from "stellar-sdk";
 
 import { KeyType } from "./constants/keys";
 import { generateEncryptedKey } from "./fixtures/keys";
@@ -17,7 +17,7 @@ function isEncryptedKey(obj: any): obj is EncryptedKey {
  * Validates an `Encrypter` object. Resolves to true if valid.
  */
 export async function testEncrypter(encrypter: any = 0): Promise<boolean> {
-  const account = StellarSdk.Keypair.random();
+  const account = Keypair.random();
 
   if (!encrypter) {
     return Promise.reject(new Error("[Encrypter] Encrypter not defined"));

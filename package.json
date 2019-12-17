@@ -1,6 +1,6 @@
 {
-  "name": "@stellar/wallet-sdk",
-  "version": "0.0.8-rc.1",
+  "name": "@tinyanvil/wallet-sdk",
+  "version": "0.0.8-rc.10",
   "description": "Libraries to help you write Stellar-enabled wallets in Javascript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -59,10 +59,10 @@
     "jest-fetch-mock": "^2.1.2",
     "jest-mock-random": "^1.0.3",
     "lint-staged": "^8.1.5",
+    "path": "^0.12.7",
     "prettier": "^1.17.0",
     "regenerator-runtime": "^0.13.3",
     "sinon": "^7.3.1",
-    "stellar-sdk": "^3.2.0",
     "terser-webpack-plugin": "^2.3.0",
     "ts-loader": "^6.2.1",
     "tsc-watch": "^2.1.2",
@@ -70,20 +70,20 @@
     "typedoc": "^0.14.2",
     "typescript": "^3.3.3333",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "path": "^0.12.7"
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
     "@ledgerhq/hw-app-str": "^4.48.0",
     "@ledgerhq/hw-transport-u2f": "^4.48.0",
     "@types/jest": "^24.0.11",
-    "@types/stellar-base": "^0.10.2",
+    "@types/stellar-base": "^0.13.4",
     "bignumber.js": "^8.1.1",
     "change-case": "^3.1.0",
     "lodash": "^4.17.14",
     "query-string": "^6.4.2",
     "scrypt-async": "^2.0.1",
     "tweetnacl": "^1.0.1",
-    "tweetnacl-util": "^0.15.0"
+    "tweetnacl-util": "^0.15.0",
+    "stellar-sdk": "^3.3.0"
   }
 }

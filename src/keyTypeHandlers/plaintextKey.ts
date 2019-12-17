@@ -1,11 +1,11 @@
-import StellarSdk from "stellar-sdk";
+import { Keypair } from "stellar-sdk";
 
 import { HandlerSignTransactionParams, KeyTypeHandler } from "../types";
 
 import { KeyType } from "../constants/keys";
 
 export const plaintextKeyHandler: KeyTypeHandler = {
-  keyType: KeyType.ledger,
+  keyType: KeyType.plaintextKey,
   signTransaction(params: HandlerSignTransactionParams) {
     const { transaction, key } = params;
     if (key.privateKey === "") {
@@ -16,7 +16,7 @@ export const plaintextKeyHandler: KeyTypeHandler = {
       );
     }
 
-    const keyPair = StellarSdk.Keypair.fromSecret(key.privateKey);
+    const keyPair = Keypair.fromSecret(key.privateKey);
 
     transaction.sign(keyPair);
 
